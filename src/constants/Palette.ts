@@ -5,8 +5,7 @@ enum Palette {
   tertiary = '#325D79',
   black = '#323643',
   white = '#FFFFFF',
-  gray = '#9DA3B4',
-  gray2 = '#C5CCD6',
+  gray = '#C5CCD6',
 }
 
 export default Palette;
