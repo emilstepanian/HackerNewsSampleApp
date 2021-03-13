@@ -1,4 +1,4 @@
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
 import { ViewProps } from 'react-native';
 
 export interface Props extends ViewProps {
@@ -8,5 +8,6 @@ export interface Props extends ViewProps {
   right?: boolean;
   top?: boolean;
   bottom?: boolean;
-  children: ReactElement;
+  row?: boolean;
+  children: ReactNode;
 }

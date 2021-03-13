@@ -6,6 +6,7 @@ import { Props } from './types';
 const AppView = ({
   center,
   middle,
+  row,
   left,
   right,
   top,
@@ -15,8 +16,8 @@ const AppView = ({
   ...props
 }: Props) => {
   const ViewStyling = [
-    styles.container,
     center && styles.center,
+    row && styles.row,
     middle && styles.middle,
     left && styles.left,
     right && styles.right,
