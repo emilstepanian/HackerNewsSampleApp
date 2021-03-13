@@ -12,6 +12,8 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
+  center: { textAlign: 'center' },
+
   accent: { color: Palette.accent },
   primary: { color: Palette.primary },
   secondary: { color: Palette.secondary },

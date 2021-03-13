@@ -9,6 +9,7 @@ export interface Props extends TextProps {
   caption?: boolean;
   bold?: boolean;
   accent?: boolean;
+  center?: boolean;
   primary?: boolean;
   secondary?: boolean;
   white?: boolean;
