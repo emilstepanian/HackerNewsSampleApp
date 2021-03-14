@@ -1,6 +1,5 @@
 import React from 'react';
 import { FlatList, RefreshControl } from 'react-native';
-import { Divider } from 'react-native-elements';
 import { Palette } from '../../constants';
 import { Story } from '../../types';
 import StoryListItem from './StoryListItem';

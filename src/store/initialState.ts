@@ -12,5 +12,6 @@ export const initialState: AppState = {
   },
   stories: {
     stories: null,
+    selectedStory: null,
   },
 };

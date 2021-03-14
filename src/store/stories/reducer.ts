@@ -1,5 +1,10 @@
 import { initialState } from '../initialState';
-import { SET_STORIES, StoriesActionTypes, StoriesState } from './types';
+import {
+  SET_STORIES,
+  SELECT_STORY,
+  StoriesActionTypes,
+  StoriesState,
+} from './types';
 
 const stories = (
   state: StoriesState = initialState.stories,
@@ -10,6 +15,12 @@ const stories = (
       return {
         ...state,
         stories: action.payload,
+      };
+
+    case SELECT_STORY:
+      return {
+        ...state,
+        selectedStory: action.payload,
       };
 
     default: {
