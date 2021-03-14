@@ -10,7 +10,9 @@ interface Props {
 
 const PropDisplay = ({ value, prop, onPropPress }: Props) => {
   return (
-    <ListItem onPress={() => onPropPress && onPropPress()}>
+    <ListItem
+      disabled={!onPropPress}
+      onPress={() => onPropPress && onPropPress()}>
       <ListItem.Content>
         <ListItem.Subtitle style={styles.subtitle}>{prop}</ListItem.Subtitle>
         <ListItem.Title>{value}</ListItem.Title>
