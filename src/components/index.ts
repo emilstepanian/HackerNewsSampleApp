@@ -5,6 +5,7 @@ import GradientButton from './Buttons/Gradient';
 import Button from './Buttons/Standard';
 import NavBackButton from './Buttons/NavBack';
 import Header from './Header';
+import StoryList from './Story/StoryList';
 import Loader from './Loader';
 export {
   Screen,
@@ -15,4 +16,5 @@ export {
   NavBackButton,
   Header,
   Loader,
+  StoryList,
 };

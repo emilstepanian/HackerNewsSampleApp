@@ -11,9 +11,10 @@ export type Author = {
 export type Story = {
   id: number;
   score: number;
-  time: Date;
+  time: number;
   title: string;
   type: ItemType.STORY;
   url: URL;
-  authorId: string;
+  by: string;
+  authorData: Author | null;
 };

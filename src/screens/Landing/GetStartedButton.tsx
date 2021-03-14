@@ -15,7 +15,7 @@ const GetStartedButton = () => {
 
   const navigation = useNavigation();
 
-  const navigateNewsList = async () => {
+  const onNavNewsList = async () => {
     dispatch(setLoading(true));
 
     const stories = await fetchStories();
@@ -26,7 +26,7 @@ const GetStartedButton = () => {
 
   return (
     <View middle>
-      <GradientButton onPress={navigateNewsList}>
+      <GradientButton onPress={onNavNewsList}>
         <Text white bold center>
           {landing.getStartedButtonText}
         </Text>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, StyleSheet } from 'react-native';
-import { Text } from '..';
+import Text from '../Text';
 import { Palette, Sizes } from '../../constants';
 import View from '../View';
 

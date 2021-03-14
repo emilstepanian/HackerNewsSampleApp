@@ -1,32 +1,27 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react';
-import { FlatList, RefreshControl, StyleSheet } from 'react-native';
-import { Header, Screen, Text } from '../../components';
-import { Palette, Sizes } from '../../constants';
+import { StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux';
+import { Header, Screen, StoryList } from '../../components';
+import { Sizes } from '../../constants';
+import { AppState } from '../../store/initialState';
+import { Story } from '../../types';
 
 const NewsList = () => {
-  //var [isLoading, setIsLoading] = useState(false);
-
   const navigation = useNavigation();
 
-  const data = [{ name: 'emil' }, { name: 'Silva' }];
+  const {
+    stories: { stories },
+  } = useSelector((state: AppState) => state);
+
+  const onStoryPress = (story: Story) => {
+    console.log(story.score);
+  };
 
   return (
     <Screen style={styles.container}>
       <Header title="Top stories" onNavBack={() => navigation.goBack()} />
-      <FlatList
-        data={data}
-        refreshControl={
-          <RefreshControl
-            colors={[Palette.white, Palette.secondary]}
-            progressBackgroundColor={Palette.primary}
-            refreshing={false}
-            onRefresh={() => {}}
-          />
-        }
-        renderItem={({ item }) => <Text>{item.name}</Text>}
-        keyExtractor={(item, index) => index.toString()}
-      />
+      <StoryList stories={stories} onStoryPress={onStoryPress} />
     </Screen>
   );
 };
