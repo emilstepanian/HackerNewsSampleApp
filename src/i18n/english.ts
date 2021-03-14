@@ -16,7 +16,7 @@ const language: LanguageProps = {
   story: {
     dateCreated: 'Date Created',
     score: 'Score',
-    url: 'Link',
+    url: 'Click to open link',
     by: 'By',
     authorKarma: 'Their karma',
     loadingAuthorInfo: 'Loading author',
