@@ -6,8 +6,10 @@ import { Header, Screen, StoryList } from '../../components';
 import { Sizes } from '../../constants';
 import { useLabels } from '../../hooks/useLabels';
 import { Routes } from '../../navigation/types';
+import { fetchStories } from '../../service/hackernews';
 import { AppState } from '../../store/initialState';
-import { updateSelectedStory } from '../../store/stories/actions';
+import { setStories, updateSelectedStory } from '../../store/stories/actions';
+import { setLoading } from '../../store/ui/actions';
 import { Story } from '../../types';
 
 const NewsList = () => {
@@ -23,13 +25,23 @@ const NewsList = () => {
     navigation.navigate(Routes.STORY);
   };
 
+  const onRefreshStories = async () => {
+    dispatch(setLoading(true));
+    dispatch(setStories(await fetchStories()));
+    dispatch(setLoading(false));
+  };
+
   return (
     <Screen style={styles.container}>
       <Header
         title={newsList.headerTitle}
         onNavBack={() => navigation.goBack()}
       />
-      <StoryList stories={stories} onStoryPress={onStoryPress} />
+      <StoryList
+        stories={stories}
+        onStoryPress={onStoryPress}
+        onRefreshPull={onRefreshStories}
+      />
     </Screen>
   );
 };
