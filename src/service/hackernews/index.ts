@@ -4,18 +4,18 @@ import { getRandomSubsetOfArray } from '../../helpers/getRandomSubsetOfArray';
 export const fetchStories = async () => {
   const topStoryIds = await fetchTopStories();
 
-  const selectedTopStoryIds = getRandomSubsetOfArray(topStoryIds, 10);
+  const selectedTopStoryIds: number[] = getRandomSubsetOfArray(topStoryIds, 10);
 
   return Promise.all(selectedTopStoryIds.map((storyId) => fetchStory(storyId)));
-
-  /*
+};
+/*
     I have left below initial implementations, to highlight what kind of insecurities I can have.
     For instance, I wanted to go away from promises into async/await. However, then I thought that
-    it is not nice to declare all these constants as seen above that happens when you try to 'flatten'
-    and decompose the logic with async/awaits.
-    I end up in a dilemma not knowing what to focus on: Save amount of constants, or 'flatten' the logic?
+    it is not nice to declare these constants as seen above  that happens when you try to 'flatten'
+    and decompose the logic with async/awaits, as it allocates memory for the constant.
+    I end up in a dilemma not knowing what to focus on: Save amount of constants to save memory, or 'flatten' the logic?
     Stuff like this is where one simple indication from a more experienced programmer, can help me quickly
-    the dos and dont's.
+    know the dos and dont's.
     I chose to go with the flattened logic.
 
   Second implementation = Solution where we don't create any constants, thus saving memory?
@@ -49,4 +49,3 @@ export const fetchStories = async () => {
     });
 
     */
-};
