@@ -1,4 +1,4 @@
-import { StoriesState } from './stories/types';
+import { StoriesState, emptyStory } from './stories/types';
 import { UiState } from './ui/types';
 
 export interface AppState {
@@ -12,6 +12,6 @@ export const initialState: AppState = {
   },
   stories: {
     stories: null,
-    selectedStory: null,
+    selectedStory: emptyStory,
   },
 };

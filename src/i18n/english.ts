@@ -9,5 +9,8 @@ const language: LanguageProps = {
     getStartedButtonText: 'Get started',
     loadingStories: 'Loading stories',
   },
+  newsList: {
+    headerTitle: 'Top Stories',
+  },
 };
 export default language;

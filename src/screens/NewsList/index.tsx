@@ -2,8 +2,9 @@ import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { Header, Screen, StoryList, View } from '../../components';
+import { Header, Screen, StoryList } from '../../components';
 import { Sizes } from '../../constants';
+import { useLabels } from '../../hooks/useLabels';
 import { Routes } from '../../navigation/types';
 import { AppState } from '../../store/initialState';
 import { updateSelectedStory } from '../../store/stories/actions';
@@ -16,7 +17,7 @@ const NewsList = () => {
     stories: { stories },
   } = useSelector((state: AppState) => state);
   const dispatch = useDispatch();
-
+  const { newsList } = useLabels();
   const onStoryPress = (story: Story) => {
     dispatch(updateSelectedStory(story));
     navigation.navigate(Routes.ARTICLE);
@@ -24,10 +25,11 @@ const NewsList = () => {
 
   return (
     <Screen style={styles.container}>
-      <Header title="Top stories" onNavBack={() => navigation.goBack()} />
-      <View style={styles.list}>
-        <StoryList stories={stories} onStoryPress={onStoryPress} />
-      </View>
+      <Header
+        title={newsList.headerTitle}
+        onNavBack={() => navigation.goBack()}
+      />
+      <StoryList stories={stories} onStoryPress={onStoryPress} />
     </Screen>
   );
 };
@@ -37,11 +39,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-around',
     paddingHorizontal: Sizes.padding,
-  },
-
-  list: {
-    paddingTop: Sizes.padding,
-    flex: 1,
   },
 });
 

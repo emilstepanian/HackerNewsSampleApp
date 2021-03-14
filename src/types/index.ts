@@ -1,11 +1,6 @@
-enum ItemType {
-  STORY = 'story',
-}
-
-export type Author = {
+export type User = {
   id: string;
   karma: number;
-  about: string;
 };
 
 export type Story = {
@@ -13,8 +8,7 @@ export type Story = {
   score: number;
   time: number;
   title: string;
-  type: ItemType.STORY;
-  url: URL;
+  url: string;
   by: string;
-  authorData: Author | null;
+  userData: User;
 };

@@ -1,5 +1,10 @@
 import { fetchStory, fetchTopStories } from './story';
+import { fetchUser } from './user';
 import { getRandomSubsetOfArray } from '../../helpers/getRandomSubsetOfArray';
+
+export const fetchUserById = async (authorId: string) => {
+  return fetchUser(authorId);
+};
 
 export const fetchStories = async () => {
   const topStoryIds = await fetchTopStories();

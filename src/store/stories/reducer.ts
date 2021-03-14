@@ -4,6 +4,7 @@ import {
   SELECT_STORY,
   StoriesActionTypes,
   StoriesState,
+  UPDATE_STORY,
 } from './types';
 
 const stories = (
@@ -23,6 +24,14 @@ const stories = (
         selectedStory: action.payload,
       };
 
+    case UPDATE_STORY:
+      return {
+        ...state,
+        selectedStory: {
+          ...state.selectedStory,
+          ...action.payload,
+        },
+      };
     default: {
       return state;
     }

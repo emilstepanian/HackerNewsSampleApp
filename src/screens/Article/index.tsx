@@ -2,26 +2,27 @@ import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
-import { Header, Screen, StoryList } from '../../components';
+import { Header, Screen } from '../../components';
 import { Sizes } from '../../constants';
 import { AppState } from '../../store/initialState';
-import { Story } from '../../types';
+import ArticleInfo from './ArticleInfo';
+import AuthorInfo from './AuthorInfo';
 
 const NewsList = () => {
   const navigation = useNavigation();
 
   const {
-    stories: { stories },
+    stories: { selectedStory },
   } = useSelector((state: AppState) => state);
-
-  const onStoryPress = (story: Story) => {
-    console.log(story.score);
-  };
 
   return (
     <Screen style={styles.container}>
-      <Header title="Top stories" onNavBack={() => navigation.goBack()} />
-      <StoryList stories={stories} onStoryPress={onStoryPress} />
+      <Header
+        title={selectedStory.title}
+        onNavBack={() => navigation.goBack()}
+      />
+      <ArticleInfo />
+      <AuthorInfo />
     </Screen>
   );
 };

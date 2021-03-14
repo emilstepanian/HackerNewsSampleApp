@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, RefreshControl } from 'react-native';
 import { Palette } from '../../constants';
 import { Story } from '../../types';
-import StoryListItem from './StoryListItem';
+import StoryListItem from './ListItem';
 
 interface StoryListProps {
   stories: Story[] | null;
@@ -21,7 +21,7 @@ const StoryList = ({ stories, onStoryPress }: StoryListProps) => {
           onRefresh={() => {}}
         />
       }
-      renderItem={({ item, index }) => (
+      renderItem={({ item }) => (
         <StoryListItem onPress={() => onStoryPress(item)} story={item} />
       )}
       keyExtractor={(item, index) => index.toString()}

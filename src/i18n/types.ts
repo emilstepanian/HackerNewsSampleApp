@@ -7,4 +7,8 @@ export interface LanguageProps {
     getStartedButtonText: string;
     loadingStories: string;
   };
+
+  newsList: {
+    headerTitle: string;
+  };
 }
