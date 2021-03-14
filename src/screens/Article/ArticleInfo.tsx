@@ -1,9 +1,11 @@
+import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { View } from '../../components';
 import PropDisplay from '../../components/PropDisplay';
 import { formatEpochToDateString } from '../../helpers/formatEpochToDate';
 import { useLabels } from '../../hooks/useLabels';
+import { Routes } from '../../navigation/types';
 import { AppState } from '../../store/initialState';
 
 const ArticleInfo = () => {
@@ -12,6 +14,7 @@ const ArticleInfo = () => {
   } = useSelector((state: AppState) => state);
   const { article } = useLabels();
 
+  const navigation = useNavigation();
   return (
     <View>
       <PropDisplay
@@ -20,7 +23,7 @@ const ArticleInfo = () => {
       />
       <PropDisplay value={selectedStory.score} prop={article.score} />
       <PropDisplay
-        onPropPress={(url) => {}}
+        onPropPress={() => navigation.navigate(Routes.WEBVIEW)}
         value={selectedStory.url}
         prop={article.url}
       />

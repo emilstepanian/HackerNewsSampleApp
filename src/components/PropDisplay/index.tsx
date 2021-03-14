@@ -5,12 +5,12 @@ import { Palette, Sizes } from '../../constants';
 interface Props {
   value: string | number;
   prop: string;
-  onPropPress?: (value: string | number) => void;
+  onPropPress?: () => void;
 }
 
 const PropDisplay = ({ value, prop, onPropPress }: Props) => {
   return (
-    <ListItem onPress={() => onPropPress && onPropPress(value)}>
+    <ListItem onPress={() => onPropPress && onPropPress()}>
       <ListItem.Content>
         <ListItem.Subtitle style={styles.subtitle}>{prop}</ListItem.Subtitle>
         <ListItem.Title>{value}</ListItem.Title>

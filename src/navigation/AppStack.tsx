@@ -3,6 +3,8 @@ import React from 'react';
 import Landing from '../screens/Landing';
 import NewsList from '../screens/NewsList';
 import Article from '../screens/Article';
+import WebView from '../screens/WebView';
+
 import { defaultNavigationOptions, transitionOptions } from './setup';
 import { RootStackParamList, Routes } from './types';
 
@@ -25,6 +27,11 @@ const AppStackScreen = () => {
         options={transitionOptions}
         name={Routes.ARTICLE}
         component={Article}
+      />
+      <AppStack.Screen
+        options={transitionOptions}
+        name={Routes.WEBVIEW}
+        component={WebView}
       />
     </AppStack.Navigator>
   );
