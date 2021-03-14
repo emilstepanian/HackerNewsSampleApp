@@ -11,7 +11,13 @@ export const fetchStories = async () => {
 
   const selectedTopStoryIds: number[] = getRandomSubsetOfArray(topStoryIds, 10);
 
-  return Promise.all(selectedTopStoryIds.map((storyId) => fetchStory(storyId)));
+  const stories = await Promise.all(
+    selectedTopStoryIds.map((storyId) => fetchStory(storyId))
+  );
+
+  stories.sort((a, b) => (a.score < b.score ? 1 : -1));
+
+  return stories;
 };
 /*
     I have left below initial implementations, to highlight what kind of insecurities I can have.
