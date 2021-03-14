@@ -30,8 +30,7 @@ const Header = ({ title, onNavBack }: Props) => {
 };
 export const styles = StyleSheet.create({
   container: {
-    paddingVertical: Sizes.base,
-    justifyContent: 'flex-start',
+    paddingTop: Sizes.base,
   },
 });
 
