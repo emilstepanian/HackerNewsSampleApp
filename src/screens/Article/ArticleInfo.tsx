@@ -1,28 +1,28 @@
-import React, { useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { View } from '../../components';
 import PropDisplay from '../../components/PropDisplay';
 import { formatEpochToDateString } from '../../helpers/formatEpochToDate';
+import { useLabels } from '../../hooks/useLabels';
 import { AppState } from '../../store/initialState';
 
 const ArticleInfo = () => {
-  const stableDispatch = useCallback(useDispatch(), []);
-
   const {
     stories: { selectedStory },
   } = useSelector((state: AppState) => state);
+  const { article } = useLabels();
 
   return (
     <View>
       <PropDisplay
         value={formatEpochToDateString(selectedStory.time)}
-        prop="Date Created"
+        prop={article.dateCreated}
       />
-      <PropDisplay value={selectedStory.score} prop="Score" />
+      <PropDisplay value={selectedStory.score} prop={article.score} />
       <PropDisplay
-        onPropPress={(value) => {}}
+        onPropPress={(url) => {}}
         value={selectedStory.url}
-        prop="URL"
+        prop={article.url}
       />
     </View>
   );

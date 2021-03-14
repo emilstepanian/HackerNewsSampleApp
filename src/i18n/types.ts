@@ -11,4 +11,14 @@ export interface LanguageProps {
   newsList: {
     headerTitle: string;
   };
+
+  article: {
+    dateCreated: string;
+    score: string;
+    url: string;
+    by: string;
+    authorKarma: string;
+    loadingAuthorInfo: string;
+    authorInfo: string;
+  };
 }

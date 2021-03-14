@@ -5,9 +5,11 @@ import { Loader, Text, View } from '../../components';
 import PropDisplay from '../../components/PropDisplay';
 import { Sizes } from '../../constants';
 import { useAuthorInfo } from '../../hooks/useAuthorInfo';
+import { useLabels } from '../../hooks/useLabels';
 import { AppState } from '../../store/initialState';
 
 const AuthorInfo = () => {
+  const { article } = useLabels();
   const {
     stories: {
       selectedStory: { userData },
@@ -19,15 +21,15 @@ const AuthorInfo = () => {
   return (
     <View style={styles.content}>
       <Text h2 bold>
-        Author Information
+        {article.authorInfo}
       </Text>
       {userData ? (
         <View>
-          <PropDisplay value={userData.id} prop="By" />
-          <PropDisplay value={userData.karma} prop="Their karma" />
+          <PropDisplay value={userData.id} prop={article.by} />
+          <PropDisplay value={userData.karma} prop={article.authorKarma} />
         </View>
       ) : (
-        <Loader loadingText="Loading author" />
+        <Loader loadingText={article.loadingAuthorInfo} />
       )}
     </View>
   );

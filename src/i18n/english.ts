@@ -12,5 +12,14 @@ const language: LanguageProps = {
   newsList: {
     headerTitle: 'Top Stories',
   },
+  article: {
+    dateCreated: 'Date Created',
+    score: 'Score',
+    url: 'Link',
+    by: 'By',
+    authorKarma: 'Their karma',
+    loadingAuthorInfo: 'Loading author',
+    authorInfo: 'Author Information',
+  },
 };
 export default language;
