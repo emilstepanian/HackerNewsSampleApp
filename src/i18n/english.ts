@@ -5,7 +5,8 @@ const language: LanguageProps = {
     headerTitleStart: 'Hacker',
     headerTitleEnd: 'News',
     headerSubtitle: 'Sample app',
-    description: 'Description of app here',
+    description:
+      'App utilizes the Hacker News API to display 10 randomized top stories ordered by their score. \n\nClicking on a story, one gets the options of viewing displayed information and opening the URL.',
     getStartedButtonText: 'Get started',
     loadingStories: 'Loading stories',
   },
