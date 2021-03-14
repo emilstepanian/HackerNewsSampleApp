@@ -7,6 +7,7 @@ const language: LanguageProps = {
     headerSubtitle: 'Sample app',
     description: 'Description of app here',
     getStartedButtonText: 'Get started',
+    loadingStories: 'Loading stories',
   },
 };
 export default language;

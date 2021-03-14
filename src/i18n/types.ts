@@ -5,5 +5,6 @@ export interface LanguageProps {
     headerSubtitle: string;
     description: string;
     getStartedButtonText: string;
+    loadingStories: string;
   };
 }

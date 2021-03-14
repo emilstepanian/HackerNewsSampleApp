@@ -8,7 +8,7 @@ export interface AppState {
 
 export const initialState: AppState = {
   ui: {
-    isLoading: true,
+    isLoading: false,
   },
   stories: {
     stories: null,

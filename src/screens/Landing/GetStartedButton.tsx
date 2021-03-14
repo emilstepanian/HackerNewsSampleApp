@@ -1,23 +1,32 @@
+import { useNavigation } from '@react-navigation/core';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { GradientButton, Text, View } from '../../components';
 import { useLabels } from '../../hooks/useLabels';
+import { Routes } from '../../navigation/types';
 import { fetchStories } from '../../service/hackernews';
+import { setStories } from '../../store/stories/actions';
+import { setLoading } from '../../store/ui/actions';
 
 const GetStartedButton = () => {
   const { landing } = useLabels();
 
-  //const navigation = useNavigation();
+  const dispatch = useDispatch();
 
-  // const navigateToNewsList = () => navigation.navigate(Routes.NEWS_LIST);
+  const navigation = useNavigation();
 
-  const retrieveData = async () => {
-    const data = await fetchStories();
-    console.log(data[0].score);
+  const navigateNewsList = async () => {
+    dispatch(setLoading(true));
+
+    const stories = await fetchStories();
+    dispatch(setStories(stories));
+    dispatch(setLoading(false));
+    navigation.navigate(Routes.NEWS_LIST);
   };
 
   return (
     <View middle>
-      <GradientButton onPress={retrieveData}>
+      <GradientButton onPress={navigateNewsList}>
         <Text white bold center>
           {landing.getStartedButtonText}
         </Text>
