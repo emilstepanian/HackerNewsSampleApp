@@ -20,7 +20,7 @@ const NewsList = () => {
   const { newsList } = useLabels();
   const onStoryPress = (story: Story) => {
     dispatch(updateSelectedStory(story));
-    navigation.navigate(Routes.ARTICLE);
+    navigation.navigate(Routes.STORY);
   };
 
   return (

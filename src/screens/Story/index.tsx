@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { Header, Screen } from '../../components';
 import { Sizes } from '../../constants';
 import { AppState } from '../../store/initialState';
-import ArticleInfo from './ArticleInfo';
+import StoryInfo from './StoryInfo';
 import AuthorInfo from './AuthorInfo';
 
 const NewsList = () => {
@@ -21,7 +21,7 @@ const NewsList = () => {
         title={selectedStory.title}
         onNavBack={() => navigation.goBack()}
       />
-      <ArticleInfo />
+      <StoryInfo />
       <AuthorInfo />
     </Screen>
   );

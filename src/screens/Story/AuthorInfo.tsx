@@ -9,7 +9,7 @@ import { useLabels } from '../../hooks/useLabels';
 import { AppState } from '../../store/initialState';
 
 const AuthorInfo = () => {
-  const { article } = useLabels();
+  const { story } = useLabels();
   const {
     stories: {
       selectedStory: { userData },
@@ -21,15 +21,15 @@ const AuthorInfo = () => {
   return (
     <View style={styles.content}>
       <Text h2 bold>
-        {article.authorInfo}
+        {story.authorInfo}
       </Text>
       {userData ? (
         <View>
-          <PropDisplay value={userData.id} prop={article.by} />
-          <PropDisplay value={userData.karma} prop={article.authorKarma} />
+          <PropDisplay value={userData.id} prop={story.by} />
+          <PropDisplay value={userData.karma} prop={story.authorKarma} />
         </View>
       ) : (
-        <Loader loadingText={article.loadingAuthorInfo} />
+        <Loader loadingText={story.loadingAuthorInfo} />
       )}
     </View>
   );

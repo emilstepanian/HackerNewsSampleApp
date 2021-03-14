@@ -8,27 +8,27 @@ import { useLabels } from '../../hooks/useLabels';
 import { Routes } from '../../navigation/types';
 import { AppState } from '../../store/initialState';
 
-const ArticleInfo = () => {
+const StoryInfo = () => {
   const {
     stories: { selectedStory },
   } = useSelector((state: AppState) => state);
-  const { article } = useLabels();
+  const { story } = useLabels();
 
   const navigation = useNavigation();
   return (
     <View>
       <PropDisplay
         value={formatEpochToDateString(selectedStory.time)}
-        prop={article.dateCreated}
+        prop={story.dateCreated}
       />
-      <PropDisplay value={selectedStory.score} prop={article.score} />
+      <PropDisplay value={selectedStory.score} prop={story.score} />
       <PropDisplay
         onPropPress={() => navigation.navigate(Routes.WEBVIEW)}
         value={selectedStory.url}
-        prop={article.url}
+        prop={story.url}
       />
     </View>
   );
 };
 
-export default ArticleInfo;
+export default StoryInfo;

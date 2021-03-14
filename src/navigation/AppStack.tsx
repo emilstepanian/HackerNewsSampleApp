@@ -2,7 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import Landing from '../screens/Landing';
 import NewsList from '../screens/NewsList';
-import Article from '../screens/Article';
+import Story from '../screens/Story';
 import WebView from '../screens/WebView';
 
 import { defaultNavigationOptions, transitionOptions } from './setup';
@@ -25,8 +25,8 @@ const AppStackScreen = () => {
       />
       <AppStack.Screen
         options={transitionOptions}
-        name={Routes.ARTICLE}
-        component={Article}
+        name={Routes.STORY}
+        component={Story}
       />
       <AppStack.Screen
         options={transitionOptions}

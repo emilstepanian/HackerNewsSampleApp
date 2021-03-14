@@ -13,7 +13,7 @@ const language: LanguageProps = {
   newsList: {
     headerTitle: 'Top Stories',
   },
-  article: {
+  story: {
     dateCreated: 'Date Created',
     score: 'Score',
     url: 'Link',

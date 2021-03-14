@@ -12,7 +12,7 @@ export interface LanguageProps {
     headerTitle: string;
   };
 
-  article: {
+  story: {
     dateCreated: string;
     score: string;
     url: string;
